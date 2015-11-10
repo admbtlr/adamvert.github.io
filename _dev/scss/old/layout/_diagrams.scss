@@ -1,0 +1,58 @@
+img.diagram {
+
+  width: 100%;
+  margin: 0 0 $step;
+
+  &.full-width {
+
+    @include media-query('medium') {
+      width: 200%;
+
+      .text-right & {
+        margin-left: -50%;
+      }
+    }
+    @include media-query('huge') {
+      width: 160%;
+      margin: 0 20% $step;
+
+      .text-right & {
+        margin-left: -50%;
+      }
+    }
+  }
+
+  &.floated {
+
+    @include media-query('medium') {
+      margin: 0 20% $step;
+      width: 160%;
+    }
+
+    @include media-query('large') {
+      position: absolute;
+      width: $page-width / 2;
+      right: calc(50vw - #{$page-width / 2});
+      margin: 0 0 $step;
+    }
+
+    @include media-query('huge') {
+      width: $huge-page-width / 2;
+      right: calc(50vw - #{$huge-page-width / 2})
+    }
+
+    dd & {
+      z-index: -1;
+      opacity: 0;
+      transition: opacity .2s ease-in-out .3s;
+      left: 50%;
+    }
+
+    dt.active + dd & {
+      z-index: 1;
+      opacity: 1;
+    }
+  }
+
+
+}

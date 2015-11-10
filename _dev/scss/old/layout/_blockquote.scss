@@ -1,0 +1,17 @@
+blockquote {
+  display: inline-block;
+  margin: 0 0 $step*.5;
+  padding: $step*.5;
+  background-color: $pale-color;
+  border-radius: $step*.5;
+  font-style: italic;
+
+  &>p:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &+p {
+    font-weight: bold;
+    margin-bottom: $step*2;
+  }
+}

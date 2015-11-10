@@ -1,0 +1,97 @@
+.main-footer {
+  @include clearfix;
+  padding-top: $step * 2;
+  background-color: $dark-color;
+  color: $muted-color;
+  font-weight: 300;
+
+  // nicer for light type on a dark background
+  -webkit-font-smoothing: antialiased;
+
+  h2, h3, p, li, a, a:visited {
+    color: $muted-color;
+  }
+
+  h1, h1 > a, h1 > a:visited {
+    color: $text-color-light;
+    font-size: $body-font-size;
+    font-weight: 400;
+    line-height: $body-line-height;
+    text-transform: uppercase;
+  }
+
+  a, a:visited {
+    text-decoration: none;
+
+    &:hover {
+      color: $brand-color;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .main-footer__section, .main-footer__section--large {
+    width: 50%;
+    float: left;
+    padding-right: $step;
+    margin: 0 0 $step * 2 0;
+  }
+
+  .main-footer__section--large {
+    width: 100%;
+  }
+
+  .main-footer__section:nth-of-type(2n+1) {
+    clear: left;
+  }
+
+  .contact-details__label {
+    display: none;
+  }
+
+  .contact-details__detail {
+    display: inline;
+  }
+
+  @include media-query('large') {
+    .wrapper {
+      position: relative;
+      padding-left: $huge-page-width / 2;
+    }
+
+    .main-footer__contact-newsletter {
+      position: absolute;
+      left: 0;
+      width: 50%;
+      padding-right: 100px;
+    }
+  }
+}
+
+.lower-footer {
+  @include clearfix;
+  padding: $step $step*.5 $step*3;
+  background-color: $darker-color;
+
+  &, a, a:visited, a::before, a:visited::before {
+    color: $muted-color;
+  }
+
+  a {
+    float: left;
+  }
+
+  ul {
+    list-style: none;
+    float: right;
+    padding: $step*.5 0;
+    line-height: $body-font-size;
+  }
+
+  .spryker-logo, .spryker-logo:visited {
+    background-image: url('/img/spryker-logo-footer.png');
+  }
+}

@@ -1,0 +1,31 @@
+# Jekyll configuration precedence:
+# 1. Gruntfile task
+# 2. config.build.yml
+# 3. config.yml
+
+name: vert.so
+description:
+author:
+  name: Adam Butler
+  email: ab@adam-butler.com
+
+# Grunt handles images and assets.
+# exclude: ['img', 'css', 'js', 'fonts',
+#          '**.png', '**.jpg', '**.jpeg', '**.gif', '**.webp', '**.svg', '**.ico']
+
+exclude: ['README.md']
+
+include: ['.htaccess', 'CNAME']
+
+# _config.build.yml sets future and show_drafts to false on `grunt build`
+future: true
+show_drafts: true
+
+# Markdown library
+markdown: kramdown
+
+kramdown:
+  parse_block_html: true
+#   extensions: ['fenced_code_blocks', 'smart']
+
+pygments: false

@@ -1,0 +1,265 @@
+.main-header {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  padding: $step*.25 $step*.5 0;
+  background-color: $light-color;
+  color: $dark-color;
+
+  @include bounce-transition(.3s, padding);
+
+  .scrolled & {
+    padding: 0 $step*.5;
+  }
+
+  .scrolled &, &.main-nav-active {
+    @include fixed-nav-shadow();
+  }
+
+  .wrapper {
+    position: relative;
+  }
+
+  @include media-query('large') {
+    padding: 18px 26px 8px;
+  }
+}
+
+.spryker-logo, .spryker-logo:visited {
+  display: block;
+  position: relative;
+  top: -5px;
+  width: 140px;
+  height: 65px;
+  padding: $step*.5 0;
+  color: transparent !important;
+
+  background: url('/img/spryker-logo.png') no-repeat;
+  background-size: contain;
+
+  @include bounce-transition();
+  transform-origin: left center;
+  transform: scale3d(1,1,1);
+
+  .scrolled & {
+    transform: scale3d(.7,.7,.7);
+    margin-bottom: -14px;
+    top: -10px;
+  }
+
+  @include media-query('medium') {
+    top: -10px;
+    width: 170px;
+    height: $step*3;
+  }
+}
+
+// taken from http://www.elijahmanor.com/css-animated-hamburger-icon/
+.nav-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $step*2;
+  height: $step;
+  padding: $step $step / 2;
+  @include bounce-transition(.2s, transform);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  span, span:before, span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 3px;
+    width: $step;
+    background: $dark-color;
+    position: absolute;
+    display: block;
+    content: '';
+  }
+  span:before {
+    top: -8px;
+  }
+  span:after {
+    bottom: -8px;
+  }
+
+  // now the animation...
+  span, span:before, span:after {
+    @include bounce-transition(.4s, transform);
+  }
+  .main-nav-active & span {
+    background-color: transparent;
+  }
+  .main-nav-active & span:before, .main-nav-active & span:after {
+    top: 0;
+    // background: $brand-color;
+  }
+  .main-nav-active & span:before {
+    transform: rotate(45deg);
+  }
+  .main-nav-active & span:after {
+    transform: rotate(-45deg);
+  }
+
+  .main-nav-active &:hover {
+    transform: rotateZ(90deg);
+  }
+
+  @include media-query('medium') {
+    display: none;
+  }
+}
+
+.main-nav {
+  @include clearfix;
+  // expand width out of the padding
+  margin: 0 0-$step*.5;
+
+  .main-nav__section, button {
+    display: block;
+    float: left;
+    width: 50%;
+    border-right: 1px solid $paler-color;
+    border-bottom: 1px solid $paler-color;
+    padding: 12px $step*.75 12px;
+    color: $muted-color;
+    background-color: $light-color;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 15px;
+    line-height: $step;
+    font-weight: 300;
+
+    // no margin on right hand side
+    &:nth-child(2n) {
+      border-right: 0px;
+    }
+
+    .product &.main-nav__product,
+    .development &.main-nav__development,
+    .faq &.main-nav__faq {
+      font-weight: 400;
+      color: $darker-color;
+    }
+
+    @include media-query('medium') {
+      padding-top: 22px;
+    }
+  }
+
+  &:nth-child(n+3) {
+    border-bottom: 0;
+  }
+
+  @include media-query('medium') {
+    .main-nav__section {
+      &:hover {
+        color: $brand-color;
+        border-color: $brand-color;
+      }
+    }
+  }
+
+  button {
+
+    @include max-media-query('medium') {
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      border-color: $dark-color;
+    }
+
+    @include media-query('medium') {
+      border-color: $brand-color !important;
+      color: $brand-color;
+
+      &:hover {
+        background-color: $brand-color;
+        color: $light-color;
+        border-color: $light-color !important;
+      }
+    }
+  }
+
+  // hiding and animation...
+  @include bounce-transition(.4s);
+  transform: scale3d(0,0,0);
+  transform-origin: top;
+  max-height: 0;
+  overflow: hidden;
+
+  .main-nav-active & {
+    transform: scale3d(1,1,1);
+    max-height: 96px;
+  }
+
+  @include media-query('medium') {
+    transform: none;
+    position: absolute;
+    max-height: 96px;
+    top: 0;
+    right: 0;
+    margin: 0;
+
+    .main-nav__section, button {
+      float: none;
+      display: inline-block;
+      width: auto;
+      // padding: $step*.5 $step*.75 0;
+      vertical-align: top;
+      // background-color: $mid-color;
+    }
+
+    .main-nav__section {
+      border: 0;
+    }
+
+    button {
+      // pretty magic numbers here... the vertical align is a bit &%*@ed
+      margin-top: 11px;
+      padding: 9px 16px 7px;
+      border-color: $dark-color;
+
+      // necessary to override mobile navigation
+      &:nth-child(n) {
+        border-right: 1px solid;
+      }
+    }
+  }
+}
+
+.main-header__title {
+  text-transform: none;
+
+  &::after {
+    border: none;
+  }
+}
+
+.main-header__subtitle {
+  font-weight: 300;
+}
+
+// the dinky little triangle under the current page...
+// .product .main-nav__product, .development .main-nav__development, .faq .main-nav__faq {
+//   @include media-query('medium') {
+//     &::after {
+//       content: " ";
+//       position: relative;
+//       width: $step;
+//       height: $step*.5;
+//       display: block;
+//       left: calc(50% - #{$step*.5});
+//       bottom: -15px;
+//       border-bottom: $step*.5 solid white;
+//       border-right: $step*.5 solid transparent;
+//       border-left: $step*.5 solid transparent;
+//     }
+//   }
+// }

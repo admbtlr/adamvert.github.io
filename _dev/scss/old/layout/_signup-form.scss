@@ -1,0 +1,41 @@
+footer {
+  .mc-field-group {
+    .email {
+      padding: 4px 6px;
+      width: 240px;
+      border-radius: 3px;
+      background-color: $mid-color;
+      color: $darker-color;
+      border: 1px solid #444;
+    }
+
+    .button {
+      margin-left: 0;
+    }
+  }
+
+  // need to use the id to override mailchimp styles
+  #mc_embed_signup {
+
+    .email {
+      font-weight: 400;
+      &::-webkit-input-placeholder {
+        color: $dark-color;
+      }
+    }
+
+    &.mce_inline_error {
+      border-color: transparent;
+    }
+
+    div.mce_inline_error {
+      z-index: 1;
+      margin-top: -24px;
+      padding: 0;
+      color: $brand-color;
+      background-color: transparent;
+      font-weight: 300;
+    }
+  }
+}
+

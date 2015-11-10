@@ -1,0 +1,66 @@
+dl.expandable {
+  position: relative;
+  border-bottom: 1px solid transparentize($dark-color, .9);
+  margin-bottom: $step*2;
+
+  dt {
+    border-top: 1px solid transparentize($dark-color, .9);
+    font-size: $step*.75;
+    padding: $step*.5 0;
+    padding-right: $step;
+    color: $brand-color;
+    font-weight: 300;
+    cursor: pointer;
+
+    &:after {
+      content: "\e607";
+      position: absolute;
+      right: $step*.5;
+      color: $muted-color;
+      transition: transform .3s ease-in-out;
+      font-family: 'icomoon';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @include media-query('large') {
+      font-size: $step;
+      padding: $step 0;
+
+      // don't overlap the arrow on the right
+      padding-right: $step*2;
+
+      &:after {
+        right: $step;
+      }
+    }
+  }
+
+  dd {
+    margin-left: 0;
+    max-height: 0;
+    overflow-y: hidden;
+    transition: all .2s ease-in-out;
+
+    @include media-query('large') {
+      width: 50%;
+    }
+  }
+
+  dt.active {
+
+    &:after {
+      transform: rotate(180deg);
+    }
+
+    & + dd {
+      // the max heights are needed for the animation
+      max-height: 2000px;
+
+      @include media-query('large') {
+        max-height: 1400px;
+      }
+
+    }
+  }
+}

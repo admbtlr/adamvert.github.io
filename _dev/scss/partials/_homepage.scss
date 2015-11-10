@@ -1,0 +1,191 @@
+.section-1 {
+
+  padding-top: $step;
+
+  .days-within-cover {
+    @include shadow;
+    display: block;
+    margin: $step auto $step*2;
+
+    width: 80%;
+    // width: 50%;
+    max-width: 500px;
+  }
+
+  h1, h2, h3 {
+    color: $red;
+  }
+
+  h1 {
+    letter-spacing: 1em;
+    padding-left: 1em;
+  }
+
+  .slash {
+    color: $blue;
+  }
+}
+
+.full-height {
+  min-height: 100vh;
+}
+
+.section-2 {
+  position: relative;
+  height: 300px;
+  min-height: 300px;
+  background-color: $blue;
+  font-family: $sans-serif;
+  font-size: 16px;
+  line-height: 14px;
+  color: lighten($blue, 40%);
+  overflow: hidden;
+
+  & > p {
+    font-weight: 100;
+    position: relative;
+    width: 140%;
+    left: -20%;
+    top: -20px;
+    -webkit-filter: blur(1px);
+  }
+
+  .newsletter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 75%;
+    z-index: 2;
+
+    @include bp(medium) {
+      width: auto;
+    }
+
+
+    color: white;
+
+    h1 {
+      text-align: left;
+    }
+
+    #mc_embed_signup {
+
+      position: relative;
+
+      .email {
+        background-color: transparent;
+        border-radius: 0;
+        border-bottom: 1px solid white;
+        color: white;
+        padding: $base*.5 0;
+        font-size: $base;
+
+        &::-webkit-input-placeholder {
+          color: white;
+        }
+        &:-moz-placeholder {
+          color: white;
+          &:focus {
+            color: transparent;
+          }
+        }
+        &::-moz-placeholder {
+          color: white;
+          &:focus {
+            color: transparent;
+          }
+        }
+
+        &:focus {
+          &::-webkit-input-placeholder {
+            color: transparent;
+          }
+        }
+      }
+
+      .button {
+        position: absolute;
+        top: $step*.25;
+        right: 0;
+        background: white;
+        border: none;
+        font-family: $sans-serif;
+      }
+    }
+  }
+}
+
+.section-3 {
+  background-color: #2F333A;
+  position: relative;
+
+  padding: $step*4 16.666% 0;
+
+  h1 {
+    color: white;
+    padding-top: $step*2;
+    line-height: $step;
+    letter-spacing: 12px;
+  }
+
+  h2 {
+    padding: 0;
+    margin: 0;
+    line-height: $step;
+    font-family: $sans-serif;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 300;
+
+    &:first-child {
+      color: white;
+    }
+  }
+
+  .video-container {
+    @include shadow;
+    position: relative;
+    // width: 66%;
+    // left: 16.666%;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    height: 0;
+    border: 5px solid white;
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.and-i-know {
+  position: relative;
+  height: $step*8;
+  padding: $step*2 0;
+  margin: $step*2 0-$step*2 0;
+  font-size: $base
+}
+
+.verse {
+  position: absolute;
+  top: $step;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s linear;
+
+  .first-line {
+    color: white;
+  }
+}
+
+.verse__visible {
+  opacity: 1;
+}

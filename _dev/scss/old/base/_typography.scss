@@ -1,0 +1,119 @@
+$font-family: Fira Sans, sans-serif;
+$body-font-size: 17px;
+
+$headline-font-size: $step * 3;
+$headline-line-height: $step * 3;
+$headline-font-weight: 300;
+
+$title-font-size: $step * 1.5;
+$title-line-height: $step * 2;
+$title-font-weight: 300;
+
+$subtitle-font-size: $step;
+$subtitle-line-height: $step*1.5;
+$subtitle-font-weight: 300;
+$subtitle-color: $muted-color;
+
+$body-font-size: $body-font-size;
+$body-line-height: $step;
+$body-font-weight: 300;
+
+body {
+  color: $text-color;
+  background-color: $light-color;
+  font-family: $font-family;
+  font-size: $body-font-size;
+  font-weight: $body-font-weight;
+  line-height: $body-line-height;
+}
+
+h1, h2, p, ul, input {
+  margin: 0 0 $step;
+}
+
+h2 {
+  margin-top: $step*2;
+}
+
+h3 {
+  margin: 0;
+}
+
+h1, h2, h3 {
+  color: $heading-color;
+}
+
+// // on the white sections, h1 is muted
+// h1 {
+//   .page-content section:nth-of-type(2n+1) & {
+//     color: $muted-color;
+//   }
+
+//   // except the first one
+//   .page-content section:first-of-type & {
+//     color: $heading-color;
+//   }
+// }
+
+h1 {
+
+  // first h1 of the page is the headline
+  // .page-content > section:first-of-type & {
+  //   @include media-query('large') {
+  //     font-size: $headline-font-size;
+  //     font-weight: $headline-font-weight;
+  //     line-height: $headline-line-height;
+  //   }
+
+  //   animation-duration: .3s;
+  //   animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  //   animation-name: fadein;
+  // }
+
+  // aha, except for the homepage, which uses a non-headline h1
+  .page-content > section.homepage &,
+  section &, .overlay & {
+    // color: $muted-color;
+    font-size: $title-font-size;
+    font-weight: $title-font-weight;
+    line-height: $title-line-height;
+  }
+
+  .content &, .main-footer & {
+    @include short_underline();
+    text-transform: uppercase;
+  }
+}
+
+h2 {
+  font-size: $subtitle-font-size;
+  font-weight: $subtitle-font-weight;
+  line-height: $subtitle-line-height;
+  color: $subtitle-color;
+}
+
+h3 {
+  font-size: $body-font-size;
+  font-weight: 500;
+  line-height: $body-line-height;
+}
+
+h1, h2 {
+  text-align: center;
+
+  section & {
+    text-align: left;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: scale3d(0,0,0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1,1,1);
+  }
+}

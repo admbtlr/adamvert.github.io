@@ -1,0 +1,31 @@
+.contact-details {
+  list-style: none;
+  padding-left: 0;
+
+  li {
+    margin-left: $step;
+
+    // inline-block kinda sucks
+    font-size: 0;
+    line-height: 0;
+  }
+
+  i {
+    display: inline-block;
+    width: $step;
+    margin: 0 0 0 0 - $step;
+  }
+
+  i, div {
+    font-size: initial;
+    line-height: initial;
+  }
+
+  a, a:visited {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
