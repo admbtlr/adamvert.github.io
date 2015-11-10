@@ -147,11 +147,11 @@ module.exports = function (grunt) {
     browserify: {
         basic: {
             src: ['js/**/*.js'],
-            dest: '.tmp/js/spryker.js'
+            dest: '.tmp/js/vert.js'
         },
         dist: {
             src: ['js/**/*.js'],
-            dest: '<%= paths.dist %>/js/spryker.js'
+            dest: '<%= paths.dist %>/js/vert.js'
         }
     },
     htmlmin: {
@@ -173,7 +173,7 @@ module.exports = function (grunt) {
     uglify: {
       dist: {
         files: {
-          '<%= paths.dist %>/js/spryker.js': ['<%= paths.tmp %>/js/spryker.js']
+          '<%= paths.dist %>/js/vert.js': ['<%= paths.tmp %>/js/vert.js']
         }
       }
     },
