@@ -1,5 +1,8 @@
 ---
 layout: homepage
+title: VERT / The Days Within / Out Now
+description: Vert. New album, THE DAYS WiTHiN, available now in all good butchers.
+
 ---
 
 <section class="full-height section-1">

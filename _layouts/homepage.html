@@ -5,17 +5,9 @@
 
   <body>
 
-    {% include header.html title=page.title %}
+    {% include header.html %}
 
     <div class="wrapper">
-      <div class="lede">
-        {% if page.title %}
-          <h1 class="main-header__title">{{ page.title }}</h1>
-        {% endif %}
-        {% if page.subtitle %}
-          <h2 class="main-header__subtitle">{{ page.subtitle }}</h2>
-        {% endif %}
-      </div>
       <div class="content">
         {{ content }}
       </div>
