@@ -43,6 +43,8 @@ the whole project.
 
 @import "partials/homepage";
 
+@import "partials/epk";
+
 /*********************
 IMPORTING MODULES
 Modules are reusable blocks or elements we use throughout the project.
@@ -59,6 +61,8 @@ you hate oysters, then the world is your peanut butter & jelly sandwich.
 
 // forms (inputs & labels)
 @import "modules/forms";
+
+@import "modules/audiojs";
 
 /*********************
 BASE (MOBILE) SIZE

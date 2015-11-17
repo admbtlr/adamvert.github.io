@@ -1,0 +1,125 @@
+section {
+  @extend .full-height;
+  padding: $step;
+}
+
+.epk {
+  position: relative;
+}
+
+.epk-intro {
+  background-image: url(/img/iphone.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 20%;
+
+  h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    opacity: 0.9;
+    // mix-blend-mode: multiply;
+    font-size: $step*8;
+    padding-left: $step*4;
+    letter-spacing: $step*4;
+    font-weight: 100;
+    line-height: 1;
+    margin: 0;
+  }
+}
+
+.epk-bio {
+  columns: 2 auto;
+  column-gap: $step*4;
+
+  padding: $step*6 $step*4;
+
+  h2 {
+    position: absolute;
+    top: $step*2;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  p {
+    margin-top: 0;
+    hyphens: auto;
+  }
+
+  p:first-of-type {
+    margin-top: 0;
+
+    &::first-line {
+      font-weight: 500;
+    }
+  }
+}
+
+.epk-album {
+
+  $audio-player-width: 470px;
+
+  display: flex;
+  padding-top: $step*8;
+  background-color: $blue;
+  color: white;
+
+  p, .audio-player {
+    padding: 0 $step;
+  }
+
+  p {
+    width: 50%;
+    text-align: right;
+  }
+
+  .epk-album-cover {
+    width: $audio-player-width;
+  }
+  .audio-player {
+
+    li {
+      padding: $step*.25 0;
+      border-bottom: 1px solid white;
+    }
+
+    a {
+      &, &:hover {
+        color: white;
+        text-decoration: none;
+        border-width: 0 !important;
+      }
+    }
+    .playing {
+      font-weight: bold;
+    }
+
+  }
+}
+
+.epk-reviews {
+  h2 {
+    margin: $step*2 0 $step*3;
+  }
+  blockquote, p {
+    max-width: 800px;
+    margin: 0 auto $step*2;
+  }
+
+}
+
+.epk-contact {
+  min-height: auto;
+  background-color: $blue;
+  padding: $step*4 0;
+
+  h2 {
+    margin: $step*4;
+
+    a {
+      color: white !important;
+    }
+  }
+}
