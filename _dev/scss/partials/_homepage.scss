@@ -107,11 +107,55 @@
   }
 }
 
+.epk-album {
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.lyrics {
+  background-image: url(/img/lyrics.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // &:after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   background-color: #000;
+  // }
+
+  .lyrics-link {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-size: $step;
+    text-transform: uppercase;
+    background-color: #333;
+    padding: $step*.5 $step;
+    border-radius: $step;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+
+    &:hover, &:visited, &:active {
+      background-color: $blue;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
 .section-3 {
   background-color: #2F333A;
   position: relative;
 
   padding: $step*4 16.666% 0;
+
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
 
   h1 {
     color: white;

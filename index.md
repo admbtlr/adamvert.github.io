@@ -16,7 +16,29 @@ description: Vert. New album, THE DAYS WiTHiN, available now in all good butcher
 ### OUT NOW
 
 </section>
+<section class="epk epk-album">
+![The Days Within](/img/the-days-within.jpg){: .epk-album-cover }
 
+<div class="audio-player" id="wrapper">
+  <audio preload></audio>
+  <ol>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fd78fg6fds876gdfygfd8syvdfs8dsvf7vysd9vydfs.mp3">THE GLARE</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fasdf67s7da86fds7a6f8d9sa6f98as7d6f78sda6.mp3">REGRET</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/87n6st76hsd6gf9d6gfd6vdsvfv6df6vf8d6df6ddfs.mp3">BURY YOURSELF</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/as8d7f6sad976fasd6fsda6f9sdaf67asdf78as0d7f.mp3">AND i KNOW</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/a6fad7s6fads876fdsa86fasdf8sd76f8das6f6s9s8.mp3">ALL THiS LiGHT</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/a89d7sf6adsf6dsf6sda7f69asd76f97sd6f78sd6f.mp3">THE NiGHT SKY</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/ad8fads7fds9a8f709sad87fds7f89ads7f08a9sd7.mp3">TRUST iN ME</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/as89df8asd7f08ds7af98asd7f98asd7f876sdads.mp3">WE ALL FALL DOWN</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/sdafasd7f90ads87fdsa7f87ds6f876asd76f78asdf.mp3">i RUN THE WAVES</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/7sdf76asdf6asd7896f7asd6f876ds87f6a89s7d6f.mp3">DOG DAYS</a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fasd6f786sad7f6asd6fasd9876f7sd6gdfg76hfghf.mp3">A LiTTLE LEARNiNG</a></li>
+  </ol>
+</div>
+</section>
+<section class="full-height lyrics">
+  <a href="/img/lyrics.pdf" class="lyrics-link">Download lyric booklet</a>
+</section>
 <section class="full-height section-3">
   <div class="video-container">
   <iframe width="640" height="360" src="https://www.youtube.com/embed/jAUArgTA-08?showinfo=0" frameborder="0" allowfullscreen></iframe>
