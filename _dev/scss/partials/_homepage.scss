@@ -2,6 +2,10 @@
 
   padding-top: $step;
 
+  // position: relative;
+  // z-index: 3;
+  // box-shadow: 0 0 5px rgba(0,0,0,0.3);
+
   .days-within-cover {
     @include shadow;
     display: block;
@@ -19,6 +23,12 @@
 
 .full-height {
   min-height: 100vh;
+}
+
+.news {
+  display: none;
+  min-height: 0;
+  background-color: white;
 }
 
 .section-2 {
@@ -118,16 +128,18 @@
   align-items: center;
   justify-content: center;
 
-  // &:after {
-  //   content: '';
-  //   display: block;
-  //   position: absolute;
-  //   top: 0;
-  //   bottom: 0;
-  //   left: 0;
-  //   right: 0;
-  //   background-color: #000;
-  // }
+  p {
+    display: inline-block;
+    background-color: #333;
+    padding: 12px 24px;
+    border-radius: 24px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+
+    &:hover {
+      background-color: $blue;
+    }
+  }
 
   .lyrics-link {
     position: relative;
@@ -135,10 +147,6 @@
     color: white;
     font-size: $step;
     text-transform: uppercase;
-    background-color: #333;
-    padding: $step*.5 $step;
-    border-radius: $step;
-    box-shadow: 0 0 5px rgba(0,0,0,0.3);
 
     &:hover, &:visited, &:active {
       background-color: $blue;

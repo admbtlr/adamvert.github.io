@@ -62,17 +62,33 @@ section {
   $audio-player-width: 470px;
 
   display: flex;
-  padding-top: $step*8;
+  min-height: 0;
   background-color: $blue;
   color: white;
 
+  @include bp(medium) {
+    padding-top: $step*8;
+    min-height: 100vh;
+  }
+
   p, .audio-player {
-    padding: 0 $step;
+    padding: 0;
+    width: 100%;
+
+    @include bp(medium) {
+      padding: 0 $step;
+      width: auto;
+    }
   }
 
   p {
-    width: 50%;
-    text-align: right;
+    display: none;
+
+    @include bp(medium) {
+      display: block;
+      width: 50%;
+      text-align: right;
+    }
   }
 
   .epk-album-cover {

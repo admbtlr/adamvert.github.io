@@ -16,6 +16,10 @@ description: Vert. New album, THE DAYS WiTHiN, available now in all good butcher
 ### OUT NOW
 
 </section>
+<section class="news">
+## NEWS
+</section>
+
 <section class="epk epk-album">
 ![The Days Within](/img/the-days-within.jpg){: .epk-album-cover }
 

@@ -32,6 +32,13 @@ module.exports = function (grunt) {
       browserify: {
         files: ['js/**/*.js'],
         tasks: ['browserify:basic']
+      },
+      jekyll: {
+        files: ['../*.md',
+                '../_includes/*.html',
+                '../_layouts/*.html',
+                '../img/**/*'],
+        tasks: ['jekyll:server']
       }
     },
     browserSync: {

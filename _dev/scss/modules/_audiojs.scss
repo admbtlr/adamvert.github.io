@@ -3,12 +3,17 @@
   left: -1px;
 }
 .audiojs {
-	 width: 470px;
+	 width: 100%;
 	 height: 36px;
 	 background: #404040;
 	 overflow: hidden;
 	 font-family: monospace;
 	 font-size: 12px;
+
+		@include bp(medium) {
+			width: 470px;
+		}
+
 }
 .audiojs .play-pause {
 	 width: 35px;
@@ -32,7 +37,7 @@
 .audiojs .scrubber {
 	 position: relative;
 	 float: left;
-	 width: 280px;
+	 width: calc(100% - 55px);
 	 background: #5a5a5a;
 	 height: 14px;
 	 margin: 10px;
@@ -40,7 +45,11 @@
 	 border-left: 0px;
 	 border-bottom: 0px;
 	 overflow: hidden;
+
+	 @include bp(medium) {
+	 	width: 280px;
 	 }
+}
 .audiojs .progress {
 	 position: absolute;
 	 top: 0px;
