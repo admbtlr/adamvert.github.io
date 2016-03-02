@@ -1,0 +1,1 @@
+onchange 'js/**/*.js' -- npm run build:js

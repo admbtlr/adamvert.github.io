@@ -1,0 +1,2 @@
+browserify js/*.js > .tmp/js/vert.js
+uglifyjs .tmp/js/vert.js -o ../js/vert.js

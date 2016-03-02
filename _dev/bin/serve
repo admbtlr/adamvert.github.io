@@ -1,0 +1,2 @@
+# weird use of multiple --server allows for multiple source directories
+browser-sync start --files '../css/*.css, ../js/*.js, ../img/*, .jekyll/**/*.html' --server .tmp --server .jekyll

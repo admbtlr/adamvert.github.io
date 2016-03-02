@@ -1,10 +1,10 @@
-section {
-  @extend .full-height;
-  padding: $step;
-}
-
 .epk {
   position: relative;
+
+  section {
+    @extend .full-height;
+    padding: $step;
+  }
 }
 
 .epk-intro {
@@ -84,7 +84,7 @@ section {
   p {
     display: none;
 
-    @include bp(medium) {
+    @include bp(large) {
       display: block;
       width: 50%;
       text-align: right;
@@ -93,25 +93,6 @@ section {
 
   .epk-album-cover {
     width: $audio-player-width;
-  }
-  .audio-player {
-
-    li {
-      padding: $step*.25 0;
-      border-bottom: 1px solid white;
-    }
-
-    a {
-      &, &:hover {
-        color: white;
-        text-decoration: none;
-        border-width: 0 !important;
-      }
-    }
-    .playing {
-      font-weight: bold;
-    }
-
   }
 }
 

@@ -11,9 +11,6 @@ No one likes a mess.
 
 ******************************************************************/
 
-$step: 24px;
-$base: 18px;
-
 /*********************
 COLORS
 Need help w/ choosing your colors? Try this site out:
@@ -25,34 +22,39 @@ $beige:             #f1efe6;
 $red:               #c64149;
 $blue:              #20A8C6;
 
-$alert-yellow:      #ebe16f;
-$alert-red:         #fbe3e4;
-$alert-green:       #e6efc2;
-$alert-blue:        #d5edf8;
+$dark-gray:         #2F333A;
 
-$black:             #323944;
-$white:             #fff;
 
-$light-gray:        #f8f9fa;
-$gray:              #eaedf2;
+
+// $alert-yellow:      #ebe16f;
+// $alert-red:         #fbe3e4;
+// $alert-green:       #e6efc2;
+// $alert-blue:        #d5edf8;
+
+// $black:             #323944;
+// $white:             #fff;
+
+// $light-gray:        #f8f9fa;
+// $gray:              #eaedf2;
 $text-color:        #5c6b80;
-$meta-gray:         #9fa6b4;
+// $meta-gray:         #9fa6b4;
 
-$tan:               #eceee5;
+// $tan:               #eceee5;
 
-$green:             #7dd667;
+// $green:             #7dd667;
 
-$bones-pink:        #f01d4f;
+// $bones-pink:        #f01d4f;
 
 $link-color:        $red;
 $link-hover:        darken($link-color, 9%);
 
-$border-color:      #ccc;
-$disabled-gray:     #cfcfcf;
+// $border-color:      #ccc;
+// $disabled-gray:     #cfcfcf;
 
 
-/*
-Here's a great tutorial on how to
-use color variables properly:
-http://sachagreif.com/sass-color-variables/
-*/
+$breakpoints: (
+  'small': 500px,
+  'medium': 750px,
+  'large': 1000px,
+  'huge': 1200px,
+);

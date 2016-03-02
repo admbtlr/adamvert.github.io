@@ -1,165 +1,53 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 module.exports = {
-
   init: function() {
-    $w = $(window);
-    $managementList = $('.management ul');
+    $(function() {
+      // Setup the player to autoplay the next track
+      var a = audiojs.createAll({
+        trackEnded: function() {
+          var next = $('ol li.playing').next();
+          if (!next.length) next = $('ol li').first();
+          next.addClass('playing').siblings().removeClass('playing');
+          audio.load($('a', next).attr('data-src'));
+          audio.play();
+        }
+      });
 
-    $w.on('scroll', animateManagers);
-  }
+      // Load in the first track
+      var audio = a[0];
+          first = $('ol a').attr('data-src');
+      $('ol li').first().addClass('playing');
+      audio.load(first);
 
-};
-
-var $w, $managementList;
-
-var animateManagers = function() {
-  if ($w.scrollTop() > $managementList.position().top - $w.height() / 2) {
-    $managementList.addClass('in-viewport');
-    $w.off('scroll', animateManagers);
+      // Load in a track on click
+      $('ol li').click(function(e) {
+        e.preventDefault();
+        $(this).addClass('playing').siblings().removeClass('playing');
+        audio.load($('a', this).attr('data-src'));
+        audio.play();
+      });
+      // Keyboard shortcuts
+      $(document).keydown(function(e) {
+        var unicode = e.charCode ? e.charCode : e.keyCode;
+           // right arrow
+        if (unicode == 39) {
+          var next = $('li.playing').next();
+          if (!next.length) next = $('ol li').first();
+          next.click();
+          // back arrow
+        } else if (unicode == 37) {
+          var prev = $('li.playing').prev();
+          if (!prev.length) prev = $('ol li').last();
+          prev.click();
+          // spacebar
+        } else if (unicode == 32) {
+          audio.playPause();
+        }
+      })
+    });
   }
 }
-
 },{}],2:[function(require,module,exports){
-module.exports = {
-  init: function() {
-    $textList = $('.architecture-text-list');
-    height = window.innerHeight;
-    listYPosition = $textList.offset().top;
-    $w = $(window);
-    $w.on('scroll', fadeInText);
-  }
-};
-
-var $w,
-    $textList,
-    height,
-    listYPosition,
-    yPosition;
-
-var fadeInText = function() {
-  yPosition = $w.scrollTop();
-  if (yPosition > listYPosition - height / 2) {
-    $textList.addClass('in-viewport');
-    $w.off('scroll', fadeInText);
-  }
-};
-},{}],3:[function(require,module,exports){
-var interactions = require('./interactions.js');
-
-module.exports = {
-  init: function($searchBox) {
-    $searchBox = addFAQSearchBox();
-    addFAQSearchResults($searchBox);
-    addFAQSearchInteraction($searchBox);
-  }
-};
-
-var $faqs = $('dt');
-
-function addFAQSearchBox() {
-  $searchBox = $('<input></input>').
-    attr('type', 'text').
-    attr('placeholder', 'What are you looking for?').
-    addClass('faq__search-box js-faq-search');
-  $('.page-content h1').after($searchBox);
-  return $searchBox;
-}
-
-function addFAQSearchResults($searchBox) {
-  $results = $('<div></div>').
-    attr('class', 'faq__search-results js-search-results').
-    append($('<h2>Search results</h2>'));
-  $searchBox.after($results);
-  $results.hide();
-}
-
-function addFAQSearchInteraction($searchBox) {
-  $searchBox.on('keyup', respondToFAQSearchKeyPress);
-}
-
-function respondToFAQSearchKeyPress(e) {
-  var term = getTerm();
-  if (term.length > 1) {
-    showFAQs(findMatchingFAQs(term));
-  } else {
-    showFAQs();
-  }
-}
-
-function getTerm() {
-  return $('.js-faq-search').val();
-}
-
-function findMatchingFAQs(term) {
-  var matches = new Array(),
-      pattern = new RegExp('\\b'+term, 'i');
-  $faqs.each(function() {
-    $faq = $(this);
-
-    // test the question OR the answer
-    if ($faq.text().match(pattern) || $faq.next('dd').text().match(pattern)) {
-      matches.push($faq.next().addBack());
-    }
-  });
-  return matches || false;
-}
-
-function showFAQs(faqs) {
-  if (faqs === false) {
-    removeFAQSearchResults();
-    $('.js-search-results').append($('<p>No results</p>'));
-    showFAQSearchResults();
-  } else if (faqs === undefined)  {
-    $('.js-search-results').find().remove();
-    hideFAQSearchResults();
-  } else {
-    if (faqs.length) {
-      // transform array into jq object
-      var $faqs = $(faqs).map(function() { return this.toArray(); }),
-          $faqList = $('<dl></dl>');
-
-      removeFAQSearchResults();
-      $highlighted = highlightSearchTerm(getTerm(), $faqs.clone());
-      $highlighted.appendTo($faqList);
-      $faqList.addClass('js-faq-list expandable').appendTo($('.js-search-results'));
-      interactions.definitionLists();
-      showFAQSearchResults();
-    } else {
-      removeFAQSearchResults();
-      $('<p>No results</p>').addClass('js-search-message').
-        appendTo($('.js-search-results'));
-      showFAQSearchResults();
-    }
-  }
-}
-
-function highlightSearchTerm(term, $faqs) {
-  var $dt, dd, splitted;
-  for (var i = $faqs.length - 1; i >= 0; i--) {
-    splitted = $faqs[i].innerHTML.split(term);
-    $faqs[i].innerHTML = splitted.join('<span class="highlight">'+term+'</span>');
-  };
-  return $faqs;
-}
-
-function showFAQSearchResults() {
-  $('.wrapper > h2').hide();
-  $('.wrapper > dl').hide();
-  $('.js-search-results').show();
-}
-
-function hideFAQSearchResults() {
-  $('.wrapper > h2').show();
-  $('.wrapper > dl').show();
-  $('.js-search-results').hide();
-}
-
-function removeFAQSearchResults() {
-  $('.js-search-results').find('.js-faq-list').remove();
-  $('.js-search-results').find('.js-search-message').remove();
-}
-
-},{"./interactions.js":5}],4:[function(require,module,exports){
 module.exports = {
   init: function($) {
     var verses = document.querySelectorAll('.verse');
@@ -173,397 +61,91 @@ module.exports = {
   }
 }
 
-},{}],5:[function(require,module,exports){
-var mail = require('./mail.js'),
-    nav = require('./nav.js');
+},{}],3:[function(require,module,exports){
+var $ = window.$
+var homepage = require('./homepage')
+var audio = require('./audio')
+var attachFastClick = require('fastclick')
+var charming = require('charming')
 
-module.exports = {
-
-  scrollToLink: function() {
-    $('a[href^="#"]').on('click', function(event) {
-      href = $(this).attr('href');
-      if (href.length > 1) {
-        var $target = $($(this).attr('href'));
-        event.preventDefault();
-        scrollToElement($target);
-      }
-    });
-  },
-
-  contactOverlay: function() {
-    $('.js-contact-form').on('click', function(e) {
-      showOverlay();
-      e.preventDefault();
-    });
-
-    $('.js-overlay-close').on('click', function(e) {
-      hideOverlay();
-      e.preventDefault();
-    });
-
-    $('.js-footer-contact').on('click', function(e) {
-      showOverlay();
-      e.preventDefault();
-    });
-  },
-
-  definitionLists: function() {
-    $('dt').off('click');
-    $('dt').on('click', function(e) {
-      $this = $(this);
-      if ($this.hasClass('active')) {
-        $this.removeClass('active');
-      } else {
-        $this.siblings().filter('dt').removeClass('active');
-        $this.addClass('active');
-      }
-      window.setTimeout(function() {
-        scrollToElement($this);
-      }, 400);
-      e.preventDefault();
-    });
-  },
-
-  contactForm: function() {
-    $('.js-contact-send').on('click', function(e) {
-      e.stopPropagation();
-      e.preventDefault();
-      if (message = mail.validateContactForm()) {
-        mail.send(message.name, message.email, message.text);
-      }
-    });
+var charmifyHeadings = function () {
+  var h1s = document.querySelectorAll('h1')
+  var h2s = document.querySelectorAll('h2')
+  for (var i = 0; i < h1s.length; i++) {
+    charming(h1s[i])
   }
-};
-
-var scrollPosition = 0;
-
-var showOverlay = function() {
-  scrollPosition = $(window).scrollTop();
-  $(window).scrollTop(0);
-  $('html').toggleClass('overlay-visible');
-}
-
-var hideOverlay = function() {
-  $('html').toggleClass('overlay-visible');
-  $(window).scrollTop(scrollPosition);
-  scrollPosition = 0;
-}
-
-var scrollToElement = function($el) {
-  $('html, body').animate({
-    // add 5px padding
-    scrollTop: $el.offset().top - nav.getNavBarHeight()
-  }, 300);
-};
-
-
-},{"./mail.js":7,"./nav.js":9}],6:[function(require,module,exports){
-module.exports = {
-  // centering text within a full-width background requires a wrapper div
-  // but we want to keep this out of the markdown
-  // so we add it here
-  insertWrappersIntoSections: function($sections) {
-    $sections.each(function() {
-      var $this = $(this),
-          $children;
-      $children = $this.children().remove();
-      $('<div></div>').appendTo($this).addClass('wrapper').append($children);
-    });
-  },
-
-  // build a list of links to each section within the page
-  insertSubNav: function($sections) {
-    var $firstSection,
-        $subnav,
-        $subnavSection,
-        sectionLink;
-
-    $subnav = $('<ul></ul>').addClass('subnav');
-    $sections.each(function(index) {
-      var $heading = $(this).find('h1').first();
-
-      // don't add a link to the first section,
-      // but store it, since we'll insert the subnav immediately after it
-      if (index == 0) {
-        $firstSection = $(this);
-        return;
-      }
-
-      // don't add sections without headings
-      if ($heading.length === 0) {
-        return;
-      }
-
-      // don't add the cta section
-      if ($heading.parents('.cta-section').length) {
-        return;
-      }
-
-      // jekyll automatically gives each h1 an id based on its text content
-      sectionLink = '#'+$heading.attr('id');
-
-      $subnavSection = $('<li></li>').
-        addClass('subnav__section').
-        append($('<a></a>').
-          addClass('subnav__link').
-          attr('href', sectionLink).
-          text($heading.text())
-        );
-      $subnav.append($subnavSection);
-    });
-    $subnav.insertBefore($firstSection);
-  },
-
-  // since inserting a wrapper div changes the layout immediately after load,
-  // we hide it until the wrapper has been added
-  revealPage: function() {
-    $('body').addClass('ready');
-  },
-
-  // take the bottom margin off paragraphs that only contain an image
-  removeMarginOnImageParagraphs: function() {
-    var $imageParas = $('p').filter(function(i, el) {
-      return $(el).find('img').length > 0 && $(el).text().length === 0;
-    });
-    $imageParas.css('margin-bottom', '0');
-  }
-
-};
-
-},{}],7:[function(require,module,exports){
-module.exports = {
-
-  send: function(fromName, fromEmail, text) {
-    var subject = 'Message from Spryker.com';
-
-    setButtonState('sending');
-    $.ajax({
-      method: "POST",
-      url: "//formspree.io/info@spryker.com",
-      data: {
-        'message': text,
-        'name': fromName,
-        '_replyto': fromEmail,
-        '_subject': subject
-      },
-      dataType: 'json'
-    }).done(function(response) {
-      setButtonState('sent');
-    }).error(function(response) {
-      if (response.responseJSON.name == 'ValidationError') {
-        addErrorMessage(getField('email'), 'Are you sure this email is correct?');
-        setButtonState('default');
-      } else {
-        setButtonState('error');
-      }
-    });
-  },
-
-  validateContactForm: function() {
-    var valid = true,
-        fields = [{
-      'name': 'name',
-      '$el': getField('name')
-    }, {
-      'name': 'email',
-      '$el': getField('email')
-    }, {
-      'name': 'message',
-      '$el': getField('text')
-    }];
-
-    for (var i = fields.length - 1; i >= 0; i--) {
-      var $el = fields[i].$el,
-          name = fields[i].name;
-      if ($el.val().length === 0) {
-        var msg = 'Please enter '+(name == 'email' ? 'an ' : 'a ')+name;
-        addErrorMessage($el, msg);
-        valid = false;
-      } else {
-        removeErrorMessage($el);
-      }
-    };
-    if (valid) {
-      return {
-        'name': getField('name').val(),
-        'email': getField('email').val(),
-        'text': getField('text').val()
-      }
-    }
+  for (i = 0; i < h2s.length; i++) {
+    charming(h2s[i])
   }
 }
 
-var numTicks = 0,
-    intervalId;
+$(function () {
+  attachFastClick(document.body)
+  charmifyHeadings()
+  homepage.init()
+  audio.init()
 
-var setButtonState = function(state) {
-  switch (state) {
-    case 'sending':
-      $('.js-contact-send').attr('disabled', 'true');
-      intervalId = window.setInterval(updateSendingMessage, 500);
-      break;
-    case 'sent':
-      window.clearInterval(intervalId);
-      $('.js-contact-send').val('Message sent').addClass('mail-sent');
-      break;
-    case 'error':
-      window.clearInterval(intervalId);
-      $('.js-contact-send').val('Error, please try again later.').addClass('send-error');
-      break;
-    case 'default':
-      window.clearInterval(intervalId);
-      $('.js-contact-send').val('Send');
-      $('.js-contact-send').attr('disabled', false);
-      break;
-  }
-};
+  // show/hide nav on mobile
+  $('.js-show-nav').click(function () {
+    $('body').toggleClass('nav-visible')
+  })
 
-var updateSendingMessage = function() {
-  var message = 'Sending',
-      phase = numTicks % 4;
-  message += getEllipsis(phase);
-  setButtonText(message);
-  numTicks++;
-}
+  $('.swipebox').swipebox()
+})
 
-var getEllipsis = function(phase) {
-  if (phase === 0) {
-    return '   ';
-  } else if (phase === 1) {
-    return '.  ';
-  } else if (phase === 2) {
-    return '.. ';
+
+},{"./audio":1,"./homepage":2,"charming":4,"fastclick":5}],4:[function(require,module,exports){
+(function(fn) {
+  /* istanbul ignore if  */
+  if (typeof module === 'undefined') {
+    this.charming = fn;
   } else {
-    return '...';
+    module.exports = fn;
   }
-}
+})(function(elem, opts) {
 
-var setButtonText = function(text) {
-  $('.js-contact-send').val(text);
-}
+  'use strict';
 
-var getField = function(fieldName) {
-  return $('.js-contact-'+fieldName);
-}
+  opts = opts || {};
+  var tagName = opts.tagName || 'span';
+  var classPrefix = opts.classPrefix != null ? opts.classPrefix : 'char';
 
-var addErrorMessage = function($el, msg) {
-  if ($el.next('.error-message').length === 0) {
-    $el.after($('<span></span>').addClass('error-message').text(msg));
-  }
-}
+  var count = 1;
 
-var removeErrorMessage = function($el) {
-  $el.next('.error-message').remove();
-}
-},{}],8:[function(require,module,exports){
-var homepage = require('./homepage'),
-    faqSearch = require('./faqSearch'),
-    layout = require('./layout.js'),
-    interactions = require('./interactions.js'),
-    architectureDiagram = require('./architecture-diagram.js'),
-    nav = require('./nav.js'),
-    aboutUs = require('./about-us.js'),
-    attachFastClick = require('fastclick');
+  var inject = function(elem) {
+    var parentNode = elem.parentNode;
+    var str = elem.nodeValue;
+    var len = str.length;
+    var i = -1;
+    while (++i < len) {
+      var node = document.createElement(tagName);
+      if (classPrefix) {
+        node.className = classPrefix + count;
+        count++;
+      }
+      node.appendChild(document.createTextNode(str[i]));
+      parentNode.insertBefore(node, elem);
+    }
+    parentNode.removeChild(elem);
+  };
 
-$(function() {
-  homepage.init();
+  (function traverse(elem) {
+    var childNodes = [].slice.call(elem.childNodes); // static array of nodes
+    var len = childNodes.length;
+    var i = -1;
+    while (++i < len) {
+      traverse(childNodes[i]);
+    }
+    if (elem.nodeType === Node.TEXT_NODE) {
+      inject(elem);
+    }
+  })(elem);
+
+  return elem;
+
 });
 
-
-},{"./about-us.js":1,"./architecture-diagram.js":2,"./faqSearch":3,"./homepage":4,"./interactions.js":5,"./layout.js":6,"./nav.js":9,"fastclick":10}],9:[function(require,module,exports){
-module.exports = {
-
-  init: function() {
-    $nav = $('.main-header');
-    $subnav = $('.subnav');
-    $body = $('body');
-    if ($subnav.length > 0) {
-      subNavYCoord = $subnav.offset().top;
-    }
-    totalNavHeight = $nav.height() + $subnav.height();
-    mobileNav();
-    shrinkOnScroll();
-    highlightSections();
-  },
-
-  getNavBarHeight: function() {
-    return totalNavHeight;
-  }
-};
-
-var $body, $nav, $subnav, scrolledNavHeight, totalNavHeight, subNavYCoord;
-
-var mobileNav = function() {
-  $('.js-nav-toggle').on('click', function(e) {
-    $nav.toggleClass('main-nav-active');
-    e.preventDefault();
-  });
-};
-
-var shrinkOnScroll = function() {
-  var $w = $(window),
-      isScrolled = false,
-      scrollTop;
-  $w.on('scroll', function() {
-    scrollTop =  $w.scrollTop();
-    if (!isScrolled && scrollTop > 0) {
-      $body.addClass('scrolled');
-      isScrolled = true;
-      scrolledNavHeight = totalNavHeight = $nav[0].getBoundingClientRect().height;
-    } else if (scrollTop == 0) {
-      $('body').removeClass('scrolled');
-      isScrolled = false;
-    }
-
-    if ($w.width() > 800) {
-      if ($subnav && scrollTop > 0) {
-        if (!$body.hasClass('fixed-subnav')) {
-          $body.addClass('fixed-subnav');
-          totalNavHeight = scrolledNavHeight + $subnav.height();
-        }
-      } else {
-        if ($body.hasClass('fixed-subnav')) {
-          $body.removeClass('fixed-subnav');
-          totalNavHeight = scrolledNavHeight;
-        }
-      }
-    }
-  });
-}
-
-var highlightSections = function() {
-  var $sections = $('.page-content section h1'),
-      $sectionLinks = $('.subnav a'),
-      sectionPositions = [],
-      $w = $(window),
-      scrollTop;
-  $sections.each(function(i, el) {
-    sectionPositions.push($(el).position().top);
-  });
-  $w.on('scroll', function() {
-    scrollTop =  $w.scrollTop();
-
-    // find the current section
-    var currentSection;
-    for (var i = 0; i < sectionPositions.length; i++) {
-      if (sectionPositions[i] < scrollTop + totalNavHeight) {
-        currentSection = $sections.get(i);
-      } else {
-        break;
-      }
-    };
-
-    $sectionLinks.removeClass('current-section');
-
-    if (currentSection) {
-      $('a[href$='+currentSection.id+']').addClass('current-section');
-    }
-
-  });
-}
-
-
-},{}],10:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 ;(function () {
 	'use strict';
 
@@ -1406,4 +988,4 @@ var highlightSections = function() {
 	}
 }());
 
-},{}]},{},[1,2,3,4,5,6,7,8,9]);
+},{}]},{},[1,2,3]);

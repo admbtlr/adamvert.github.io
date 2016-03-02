@@ -9,11 +9,6 @@
 	 overflow: hidden;
 	 font-family: monospace;
 	 font-size: 12px;
-
-		@include bp(medium) {
-			width: 470px;
-		}
-
 }
 .audiojs .play-pause {
 	 width: 35px;
@@ -46,9 +41,9 @@
 	 border-bottom: 0px;
 	 overflow: hidden;
 
-	 @include bp(medium) {
-	 	width: 280px;
-	 }
+	 // @include bp(medium) {
+	 // 	width: 280px;
+	 // }
 }
 .audiojs .progress {
 	 position: absolute;

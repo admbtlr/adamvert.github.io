@@ -1,0 +1,14 @@
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <h1 href="{{ post.url }}">{{ post.title }}</h1>
+      <h2>{{ post.date | date: "%-d %B %Y" }}</h2>
+      {{ post.content }}
+      {% if post.image %}
+      <a href="{{ post.image }}" class="swipebox" title="{{ post.title }}">
+        <img src="{{ post.thumbnail }}" alt="{{ post.title }}">
+      </a>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
