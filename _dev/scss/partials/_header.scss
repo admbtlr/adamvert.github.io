@@ -12,7 +12,7 @@
     height: $step*2;
     margin: $step*.5 0;
 
-    @include bp(medium) {
+    @include bp(large) {
       width: auto;
       left: calc(75% - #{$step*6});
     }
@@ -25,7 +25,7 @@
       a {
         color: #fff;
 
-        @include bp(medium) {
+        @include bp(large) {
           color: #555;
         }
 

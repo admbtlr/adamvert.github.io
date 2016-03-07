@@ -1,6 +1,6 @@
 .half {
 
-  @include bp(medium) {
+  @include bp(large) {
     width: 50%;
     float: left;
   }
@@ -18,7 +18,7 @@
 section {
   padding: $step*.5;
 
-  @include bp(medium) {
+  @include bp(large) {
     padding: $step;
   }
 
@@ -29,7 +29,7 @@ section {
 
 
 // split screen
-@include bp(medium) {
+@include bp(large) {
 
   section {
     margin-left: 50%;
@@ -58,7 +58,7 @@ section {
   height: 100vh;
   margin-left: 0;
 
-  @include bp(medium) {
+  @include bp(large) {
     position: fixed;
     top: 0;
     left: 0;
@@ -83,7 +83,7 @@ section {
     }
 
     h1 {
-      margin: 250px #{0 - $step} 0;
+      margin: 250px #{0 - $step*.5} 0;
       padding: $step*.5;
       font-size: $step*3;
       font-weight: 100;
@@ -201,14 +201,16 @@ section {
     font-weight: 500;
   }
 
-  img {
+  img, iframe {
     margin-left: 0 - $step*.5;
     margin-right: 0 - $step*.5;
-    // max-width: calc(100% + $step);
+    min-width: calc(100% + #{$step});
 
     @include bp(medium) {
       margin: 0;
-      // max-width: auto;
+      min-width: auto;
+      float: left;
+      margin-right: $step;
     }
   }
 
