@@ -31,16 +31,11 @@
 }
 
 .epk-bio {
-  columns: 2 auto;
-  column-gap: $step*4;
-
-  padding: $step*6 $step*4;
+  background-color: white;
+  padding: $step*2;
 
   h2 {
-    position: absolute;
-    top: $step*2;
-    left: 50%;
-    transform: translateX(-50%);
+    text-align: center;
   }
 
   p {
@@ -97,12 +92,25 @@
 }
 
 .epk-reviews {
+  background-color: #99a;
   h2 {
-    margin: $step*2 0 $step*3;
+    text-align: center;
+    margin: $step*2;
   }
-  blockquote, p {
+  blockquote {
     max-width: 800px;
-    margin: 0 auto $step*2;
+
+    p {
+      margin: 0;
+      &:nth-of-type(2n) {
+        color: white;
+      }
+    }
+
+    cite {
+      display: block;
+      color: $red;
+    }
   }
 
 }

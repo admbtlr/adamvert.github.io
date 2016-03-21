@@ -1,20 +1,21 @@
-
-body {
-  font-size: 16px;
-
-  @include bp(medium) {
-    font-size: 18px;
-  }
-
-  line-height: 1.5rem;
-}
-
 $step: 1.5rem;
 $base: 18px;
 
 // font stacks
 $sans-serif:        "source-code-pro";
 $serif:             "museo-slab", Museo Slab;
+
+body {
+  font-size: 16px;
+  font-family: $serif;
+  font-weight: 300;
+
+  @include bp(medium) {
+    font-size: 18px;
+  }
+
+  line-height: $step;
+}
 
 /*
 some nice typographical defaults

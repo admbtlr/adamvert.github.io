@@ -126,7 +126,7 @@ section {
 
 .section-1 {
 
-  @include bp(medium) {
+  @include bp(large) {
     padding-top: $step*6;
   }
 
@@ -136,6 +136,10 @@ section {
 
   ul {
     text-align: center;
+  }
+
+  li {
+    margin-bottom: $step*.5;
   }
 
   .slash {
@@ -204,13 +208,15 @@ section {
   img, iframe {
     margin-left: 0 - $step*.5;
     margin-right: 0 - $step*.5;
+    margin-bottom: $step;
     min-width: calc(100% + #{$step});
+    height: auto;
 
     @include bp(medium) {
-      margin: 0;
+      margin-left: 0;
+      margin-right: $step;
       min-width: auto;
       float: left;
-      margin-right: $step;
     }
   }
 

@@ -1,6 +1,15 @@
 <ul>
   {% for post in site.posts %}
+    {% if forloop.index == 4 %}
     <li>
+      <a href="#" class="news__more">Show more stories</a>
+    </li>
+    {% endif %}
+    {% if forloop.index >= 4 %}
+    <li class="news__hidden">
+    {% else %}
+    <li>
+    {% endif %}
       <h1 href="{{ post.url }}">{{ post.title }}</h1>
       <h2>{{ post.date | date: "%-d %B %Y" }}</h2>
       {{ post.content }}

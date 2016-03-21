@@ -1,11 +1,49 @@
 ---
-layout: default
+layout: homepage
+title: VERT / The Days Within / Out Now
+description: Vert. New album, THE DAYS WiTHiN, available now in all good butchers.
+
 ---
-
-<section class="epk epk-intro">
+<section class="half section-0">
+  <div class="hero-text">
 # VERT
-</section>
 
+is the pseudonym of musician Adam Butler.
+
+2016 marks the twentieth anniversary of the first VERT release, the 12" BROKEN BREAKBEAT BEBOP. 
+
+His latest album is the THE&nbsp;DAYS&nbsp;WiTHiN.
+  </div>
+</section>
+<section class="half section-1">
+
+<div class="album-player">
+![The Days Within](/img/the-days-within.jpg){: .ap__cover }
+
+<div class="audio-player" id="wrapper">
+  <audio></audio>
+  <ol class="ap__track-list">
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fd78fg6fds876gdfygfd8syvdfs8dsvf7vysd9vydfs.mp3"><div class="ap__title">1. THE GLARE</div><div class="ap__time">3:17</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fasdf67s7da86fds7a6f8d9sa6f98as7d6f78sda6.mp3"><div class="ap__title">2. REGRET</div><div class="ap__time">3:22</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/87n6st76hsd6gf9d6gfd6vdsvfv6df6vf8d6df6ddfs.mp3"><div class="ap__title">3. BURY YOURSELF</div><div class="ap__time">4:10</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/as8d7f6sad976fasd6fsda6f9sdaf67asdf78as0d7f.mp3"><div class="ap__title">4. AND i KNOW</div><div class="ap__time">3:52</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/a6fad7s6fads876fdsa86fasdf8sd76f8das6f6s9s8.mp3"><div class="ap__title">5. ALL THiS LiGHT</div><div class="ap__time">4:25</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/a89d7sf6adsf6dsf6sda7f69asd76f97sd6f78sd6f.mp3"><div class="ap__title">6. THE NiGHT SKY</div><div class="ap__time">1:28</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/ad8fads7fds9a8f709sad87fds7f89ads7f08a9sd7.mp3"><div class="ap__title">7. TRUST iN ME</div><div class="ap__time">3:52</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/as89df8asd7f08ds7af98asd7f98asd7f876sdads.mp3"><div class="ap__title">8. WE ALL FALL DOWN</div><div class="ap__time">4:05</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/sdafasd7f90ads87fdsa7f87ds6f876asd76f78asdf.mp3"><div class="ap__title">9. i RUN THE WAVES</div><div class="ap__time">4:02</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/7sdf76asdf6asd7896f7asd6f876ds87f6a89s7d6f.mp3"><div class="ap__title">10. DOG DAYS</div><div class="ap__time">4:23</div></a></li>
+    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fasd6f786sad7f6asd6fasd9876f7sd6gdfg76hfghf.mp3"><div class="ap__title">11. A LiTTLE LEARNiNG</div><div class="ap__time">5:56</div></a></li>
+  </ol>
+</div>
+</div>
+
+* [BUY DiRECT FROM SHiTKATAPULT](http://www.shitkatapult.com)
+* [LiSTEN ON SPOTIFY](https://open.spotify.com/artist/1DktaVImdwFPjN3gfAfULx)
+* [LiSTEN / BUY ON iTUNES](https://itun.es/de/Kr98-)
+* [BUY ON EMUSiC](http://www.emusic.com/album/vert/the-days-within/16272790/)
+
+</section>
 <section class="epk epk-bio">
 ## BiOGRAPHY
 
@@ -27,100 +65,31 @@ After a crippling studio burglary in 2004, he produced SOME BEANS & AN OCTOPUS (
 
 Born in the UK, Butler moved to Cologne in 2001, New York in 2007, and Berlin in 2010.
 </section>
-<section class="epk epk-album">
-![The Days Within](/img/the-days-within.jpg){: .epk-album-cover }
-
-<div class="audio-player" id="wrapper">
-  <audio preload></audio>
-  <ol>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fd78fg6fds876gdfygfd8syvdfs8dsvf7vysd9vydfs.mp3">THE GLARE</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fasdf67s7da86fds7a6f8d9sa6f98as7d6f78sda6.mp3">REGRET</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/87n6st76hsd6gf9d6gfd6vdsvfv6df6vf8d6df6ddfs.mp3">BURY YOURSELF</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/as8d7f6sad976fasd6fsda6f9sdaf67asdf78as0d7f.mp3">AND i KNOW</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/a6fad7s6fads876fdsa86fasdf8sd76f8das6f6s9s8.mp3">ALL THiS LiGHT</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/a89d7sf6adsf6dsf6sda7f69asd76f97sd6f78sd6f.mp3">THE NiGHT SKY</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/ad8fads7fds9a8f709sad87fds7f89ads7f08a9sd7.mp3">TRUST iN ME</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/as89df8asd7f08ds7af98asd7f98asd7f876sdads.mp3">WE ALL FALL DOWN</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/sdafasd7f90ads87fdsa7f87ds6f876asd76f78asdf.mp3">i RUN THE WAVES</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/7sdf76asdf6asd7896f7asd6f876ds87f6a89s7d6f.mp3">DOG DAYS</a></li>
-    <li><a href="#" data-src="https://s3.eu-central-1.amazonaws.com/vert/mp3/fasd6f786sad7f6asd6fasd9876f7sd6gdfg76hfghf.mp3">A LiTTLE LEARNiNG</a></li>
-  </ol>
-</div>
-</section>
 <section class="epk epk-reviews">
 ## REViEWS FOR THE DAYS WiTHiN
 
 > “Ein Geniestreich aus dem Geisterhaus des Pop: Adam Butler führt Melodie und Geräusch im melancholischen Song-Gewebe wie selbstverständlich zusammen.”
-**MUSiK EXPRESS**
+> 
+> “A stroke of genius in the ghost house of pop: Adam Butler pulls melody and noise into melancholic song textures as if they belonged together” <cite>**MUSiK EXPRESS**</cite>
 
-**SOUNDCHECK / RADiO EiNS** Wertung: 2 x Hit. 2 x geht in Ordnung
+> Wertung: 2 x Hit. 2 x geht in Ordnung
+> 
+> Rating: 2 x Hit. 2 x Good <cite>**SOUNDCHECK / RADiO EiNS**</cite>
+
+> Listed in Top Releases <cite>**BBC RADiO 6**</cite>
 
 > “Butler, der jetzt sein neues Album unter dem Künstlernamen Vert veröffentlicht hat, klingt ganz so, als habe der mittlere [Tom] Waits einen Sampler und einen Computer geschenkt bekommen.”
-**DiE ZEiT**
+> 
+> “Butler, who has now released his new album under the pseudonym Vert, sounds as though the mid-career Tom Waits had been given a sampler and a computer.”<cite>**DiE ZEiT**</cite>
 
 > ”bis [zur Ende] hat »The Days Within« die Wahrnehmung eh schon dreimal kräftig durchgepustet.”
-**INTRO**
+> 
+> “by the time it’s finished THE DAYS WiTHiN has blown away your perceptions at least three times.”<cite>**INTRO**</cite>
 
-Berliner Tonträger der Woche in **ZiTTY**
-</section>
 
-<section class="full-height section-3">
-  <div class="video-container">
-  <iframe width="640" height="360" src="https://www.youtube.com/embed/jAUArgTA-08?showinfo=0" frameborder="0" allowfullscreen></iframe>
-  </div>
-  <div class="and-i-know">
-  <div class="verse verse__visible">
-AND i KNOW
-
-THAT THERE ARE THiNGS
-
-YOU DON’T WANT ME
-
-TO KNOW
-  </div>
-  <div class="verse">
-AND i KNOW
-
-(AT LEAST i THiNK)
-
-THAT YOU’LL MiSS ME
-
-WHEN i GO
-  </div>
-  <div class="verse">
-AND i KNOW
-
-EVERYTHiNG
-
-THAT THERE iS
-
-TO KNOW
-  </div>
-  <div class="verse">
-ABOUT THE LOOK
-
-THAT YOU GiVE ME
-
-WHEN i TELL YOU
-
-THAT i DON’T KNOW
-  </div>
-  <div class="verse">
-AND i KNOW
-
-THAT JUST KNOWiNG
-
-DON’T MEAN A THiNG
-
-BUT EVEN SO...
-  </div>
-  <div class="verse">
-AT LEAST i KNOW
-  </div>
-  </div>
-</section>
-<section class="epk epk-contact">
-## [mail@vert.so](mail@vert.so)
+> Berliner Tonträger der Woche
+> 
+> Berlin album of the week <cite>**ZITTY**</cite>
 </section>
 
 
