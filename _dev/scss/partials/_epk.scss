@@ -32,7 +32,10 @@
 
 .epk-bio {
   background-color: white;
-  padding: $step*2;
+
+  @include bp(large) {
+    padding: $step*2;
+  }
 
   h2 {
     text-align: center;
@@ -95,11 +98,17 @@
   background-color: #99a;
   h2 {
     text-align: center;
-    margin: $step*2;
+    margin: 0;
+
+    @include bp(large) {
+      margin: 0 $step*2;
+    }
   }
   blockquote {
-    max-width: 800px;
-
+    margin: $step;
+    @include bp(large) {
+      max-width: 800px;
+    }
     p {
       margin: 0;
       &:nth-of-type(2n) {

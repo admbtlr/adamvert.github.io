@@ -76,7 +76,7 @@ Born in the UK, Butler moved to Cologne in 2001, New York in 2007, and Berlin in
 > 
 > Rating: 2 x Hit. 2 x Good <cite>**SOUNDCHECK / RADiO EiNS**</cite>
 
-> Listed in Top Releases <cite>**BBC RADiO 6**</cite>
+> Featured in BBC 6 Music Recommends <cite>**BBC 6 MUSiC**</cite>
 
 > “Butler, der jetzt sein neues Album unter dem Künstlernamen Vert veröffentlicht hat, klingt ganz so, als habe der mittlere [Tom] Waits einen Sampler und einen Computer geschenkt bekommen.”
 > 
