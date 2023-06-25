@@ -1,7 +1,7 @@
 ---
 layout: homepage
 title: VERT / The Days Within / Out Now
-description: Vert. New album, THE DAYS WiTHiN, available now in all good butchers.
+description: Vert. Latest album, THE DAYS WiTHiN, available now in all good butchers.
 
 ---
 <section class="half section-0">
@@ -10,9 +10,9 @@ description: Vert. New album, THE DAYS WiTHiN, available now in all good butcher
 
 is the pseudonym of musician Adam Butler.
 
-2016 marks the twentieth anniversary of the first VERT release, the 12" BROKEN BREAKBEAT BEBOP. 
+2022 marked the 25th anniversary of the first VERT release, the 12" BROKEN BREAKBEAT BEBOP. 
 
-His latest album is the THE&nbsp;DAYS&nbsp;WiTHiN.
+His most recent album is the THE&nbsp;DAYS&nbsp;WiTHiN.
   </div>
 </section>
 <section class="half section-1">
